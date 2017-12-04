@@ -1,0 +1,26 @@
+{
+  "name": "js-webcam",
+  "version": "1.0.0",
+  "description": "a simple core polyfill for access to user media camera",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicoandresr/js-webcam.git"
+  },
+  "keywords": [
+    "get",
+    "user",
+    "media",
+    "camera",
+    "polyfill"
+  ],
+  "author": "nicoandres.rodriguez@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicoandresr/js-webcam/issues"
+  },
+  "homepage": "https://github.com/nicoandresr/js-webcam#readme"
+}
