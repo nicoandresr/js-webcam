@@ -51,5 +51,5 @@ class Webcam {
   }
 }
 
-export default Webcam;
+module.exports = Webcam;
 
