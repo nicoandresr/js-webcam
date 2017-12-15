@@ -17,15 +17,20 @@ class Webcam {
       || navigator.oGetUserMedia;
   }
 
-  start(success, error) {
+  start(success, error, facingMode) {
     this.success = success || function emptySuccess() {};
     this.error = error || function emptyError() {};
+    this.mode = facingMode || 'user';
     if (navigator.mediaDevices) {
-      navigator.mediaDevices.getUserMedia({ video: true })
+      navigator.mediaDevices.getUserMedia({ video: { facingMode: this.mode }})
         .then(s => this.onSuccess(s)).catch(this.onError);
     } else {
-      navigator.getUserMedia({ video: true }, s => this.onSuccess(s), this.onError);
+      navigator.getUserMedia({ video: { facingMode: this.mode }}, s => this.onSuccess(s), this.onError);
     }
+  }
+
+  startBackCamera(success, error) {
+    this.start(success, error, 'environment');
   }
 
   stop() {

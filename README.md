@@ -64,3 +64,9 @@ const mapStateToProps = state => state;
 
 export default Selfie;
 ```
+
+The start function activate the frontal camera, if you need the back camera you can use startBackCamera instead.
+
+```js
+    this.webcam.startBackCamera();
+```
