@@ -48,8 +48,16 @@ class Webcam {
     } else {
       this.domElement.src = (window.URL || window.webkitURL).createObjectURL(this.stream);
     }
-    this.domElement.play();
-    this.success();
+    const promise = this.domElement.play();
+    if (promise !== undefined) {
+      promise.catch(error => {
+        this.onError(error);
+      }).then(() => {
+        this.success();
+      });
+    } else {
+      this.success();
+    }
   }
 
   static onError(e) {
