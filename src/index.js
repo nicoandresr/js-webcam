@@ -8,6 +8,7 @@ class Webcam {
     this.domElement = document.createElement('video');
     this.domElement.width = this.width;
     this.domElement.height = this.height;
+    this.domElement.setAttribute('playsinline', '');
 
     // polyfill for Stream API
     navigator.getUserMedia = navigator.getUserMedia
