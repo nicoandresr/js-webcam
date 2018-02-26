@@ -70,3 +70,12 @@ The start function activate the frontal camera, if you need the back camera you 
 ```js
     this.webcam.startBackCamera();
 ```
+
+Or you can use the start function passing the facing mode parameter, on error and on success functions:
+
+```js
+    const onError = (e) => {}; // call when the camera can not activate.
+    const onSuccess = () => {}; // call when the camera can activate successfully
+    const facingMode = 'user'; // or 'environment' for back camera.
+    this.webcam.start(onSuccess, onError, facingMode);
+```
