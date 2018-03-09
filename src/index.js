@@ -61,7 +61,7 @@ class Webcam {
     }
   }
 
-  static onError(e) {
+  onError(e) {
     this.error(e);
   }
 }

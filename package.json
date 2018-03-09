@@ -1,6 +1,6 @@
 {
   "name": "js-webcam",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "a simple core polyfill for access to user media camera",
   "main": "./dist/index.js",
   "scripts": {
