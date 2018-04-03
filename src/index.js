@@ -24,7 +24,7 @@ class Webcam {
     this.mode = facingMode || 'user';
     if (navigator.mediaDevices) {
       navigator.mediaDevices.getUserMedia({ video: { facingMode: this.mode }})
-        .then(s => this.onSuccess(s)).catch(this.onError);
+        .then(s => this.onSuccess(s)).catch(e => this.onError(e));
     } else {
       navigator.getUserMedia({ video: { facingMode: this.mode }}, s => this.onSuccess(s), this.onError);
     }
