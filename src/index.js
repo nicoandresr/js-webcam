@@ -25,8 +25,10 @@ class Webcam {
     if (navigator.mediaDevices) {
       navigator.mediaDevices.getUserMedia({ video: { facingMode: this.mode }})
         .then(s => this.onSuccess(s)).catch(e => this.onError(e));
-    } else {
+    } else if (navigator.getUserMedia) {
       navigator.getUserMedia({ video: { facingMode: this.mode }}, s => this.onSuccess(s), this.onError);
+    } else {
+      this.onError(new Error('Device unsupported'));
     }
   }
 
