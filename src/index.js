@@ -22,11 +22,13 @@ class Webcam {
     this.success = success || function emptySuccess() {};
     this.error = error || function emptyError() {};
     this.mode = facingMode || 'user';
+    const { width, height } = this;
+    const config = { video: { facingMode: this.mode, width, height }};
     if (navigator.mediaDevices) {
-      navigator.mediaDevices.getUserMedia({ video: { facingMode: this.mode }})
+      navigator.mediaDevices.getUserMedia(config)
         .then(s => this.onSuccess(s)).catch(e => this.onError(e));
     } else if (navigator.getUserMedia) {
-      navigator.getUserMedia({ video: { facingMode: this.mode }}, s => this.onSuccess(s), this.onError);
+      navigator.getUserMedia(config, s => this.onSuccess(s), e => this.onError(e));
     } else {
       this.onError(new Error('Device unsupported'));
     }
